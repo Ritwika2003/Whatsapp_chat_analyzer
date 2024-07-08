@@ -2,7 +2,7 @@ from urlextract import URLExtract
 from wordcloud import WordCloud
 import pandas as pd
 from collections import Counter
-import emoji
+
 
 extract=URLExtract()
 
@@ -72,22 +72,7 @@ def most_common_words(selected_user,df):
     return most_common_df
 
 
-def emoji_helper(selected_user, df):
-    if selected_user != 'Overall':
-        df = df[df['user'] == selected_user]
 
-    emojis=[]
-    for message in df['message']:
-        # Iterate over characters in the message
-        for char in message:
-            # Check if the character is an emoji
-            if char in emoji.UNICODE_EMOJI['en']:
-                # Add the emoji to the list
-                emojis.append(char)
-
-    emoji_df=pd.DataFrame(Counter(emojis).most_common(len(Counter(emojis))))
-
-    return emoji_df
 
 def monthly_timeline(selected_user,df):
 
