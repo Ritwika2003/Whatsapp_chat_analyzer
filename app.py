@@ -113,9 +113,7 @@ if uploaded_file is not None:
         st.pyplot(fig)
 
 
-        # emoji analysis
-        emoji_df= helper.emoji_helper(selected_user, df)
-        st.dataframe(emoji_df)
+       
 
 
 
